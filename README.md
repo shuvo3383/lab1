@@ -1,40 +1,4 @@
 
-Continuous Integration & Continuous Delivery
-Formulation
-The first lab task requires writing a simple web application that provides the user with a set of operations on the Person entity. For this application, automate the process of building, testing, and releasing on Heroku.
-
-The application must implement the API:
-
-GET /persons/{personId}– information about a person;
-GET /persons– information on all people;
-POST /persons– creating a new record about a person;
-PATCH /persons/{personId}– updating an existing record about a person;
-DELETE /persons/{personId}– deleting a record about a person.
-API description in OpenAPI format.
-
-Requirements
-The original project is stored on Github. Use only Github Actions for building .
-Requests/responses must be in JSON format.
-If the record by id is not found, then return HTTP status 404 Not Found.
-When creating a new record about a person (POST /person method), return HTTP status 201 Created with an empty body and Header Location: /api/v1/persons/{personId}, where personIdis the id of the created record.
-The application must contain 4-5 unit tests for the implemented operations.
-The application must be wrapped in Docker.
-Deploy to Heroku using GitHub Actions, use Docker for deployment. You cannot use Heroku CLI or webhooks for deployment.
-In build.yml add steps for assembly, running unit tests and deploying to Heroku.
-The application must use a database to store records.
-In [inst][heroku] Lab1.postman_environment.json replace the value baseUrlwith the address of the deployed service on Heroku.
-Explanations
-Example Kotlin/Spring applications.
-For local development, you can use Postgres in docker, for this you need to run docker compose up -d, a container with Postgres 13 will be started, a database personsand a user will be created program:test.
-After successful deployment to Heroku, integration tests are run via newman. Integration tests can be tested locally by importing the collection lab1.postman_collection.json ]) and environment [local] lab1.postman_environment.json into Postman .
-To find the right build tool, use Github Marketplace .
-An explanation of how Heroku works .
-To connect a DB to Heroku, go to the Resources section via Dashboard and Add-onslook for Heroku Postgres in the block. To get the address, user and password, go to the DB itself and select the Settings -> section Database Credentials.
-❗Heroku does not allow new users to register, so use a VPN to register.
-Accepting the task
-When you receive a task, a fork of that repository is created for your user.
-Once all tests complete successfully, the Github Classroom Dashboard will indicate that the tests have run successfully.
-❗️Since the end of November, Heroku will remove the Free Plan , only paid subscriptions will remain. In this regard, the deadline for submitting LR #1 is November 10.
 
 
 
